@@ -9,7 +9,7 @@
     <link rel="manifest" href="/sitio.webmanifest" />
     <!-- <link rel="canonical" href="https://enflujo.com" /> -->
 
-    <title>..:: EnFlujo ::..</title>
+    <title>Type Checker</title>
     <!-- <meta name="description" content="Descripción del sitio...." /> -->
 
     <!-- OpenGraph -->
@@ -35,8 +35,15 @@
     <!-- <meta name="twitter:image:alt" content="Texto que describe la imagen" /> -->
   </head>
   <body>
-    <h1>..:: EnFlujo ::..</h1>
-    <h2>Plantilla Vite</h2>
-    <script type="module" src="/src/programa.ts"></script>
+    <section class="options">
+      <h1>Type Checker</h1>
+      <div class="option1">
+        <label>Your text</label>
+        <input type="text" name="sentence" placeholder="The quick brown fox..." />
+      </div>
+    </section>
+
+    <section class="output">The quick brown fox jumps over the lazy dog</section>
+    <script type="module" src="/src/main.ts"></script>
   </body>
 </html>
