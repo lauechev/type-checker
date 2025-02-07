@@ -8,7 +8,12 @@ document.addEventListener('DOMContentLoaded', () => {
   const lineheightTag = document.querySelector<HTMLInputElement>(`input[name="lineheight"]`);
   const lineheightLabel = document.querySelector<HTMLSpanElement>('.lineheight-label');
 
+  const fontweightTag = document.querySelector<HTMLInputElement>(`input[name="fontweight"]`);
+  const fontweightLabel = document.querySelector<HTMLSpanElement>('.fontweight-label');
+
   const italicTag = document.querySelector<HTMLInputElement>(`input[name="italic"]`);
+
+  const typefaceTag = document.querySelector<HTMLSelectElement>(`select[name="typeface"]`);
 
   const outputTag = document.querySelector<HTMLTextAreaElement>('.output');
   const originalText = outputTag?.value || '';
@@ -54,6 +59,16 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
+  //when i change my font weight slider, update the text next to it and change the outputTag's fontweight
+  if (fontweightTag && outputTag) {
+    fontweightTag.addEventListener('input', function () {
+      outputTag.style.fontWeight = this.value;
+      if (fontweightLabel) {
+        fontweightLabel.innerHTML = this.value;
+      }
+    });
+  }
+
   //when i change my italic checkbox, update the font style to either normal or italic if it's checked or not.
 
   if (italicTag && outputTag) {
@@ -63,6 +78,13 @@ document.addEventListener('DOMContentLoaded', () => {
       } else {
         outputTag.style.fontStyle = '';
       }
+    });
+  }
+
+  //when i change my select for typeface, update font family.
+  if (typefaceTag && outputTag) {
+    typefaceTag.addEventListener('input', function () {
+      outputTag.style.fontFamily = this.value;
     });
   }
 });
