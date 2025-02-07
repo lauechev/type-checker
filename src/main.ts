@@ -1,8 +1,13 @@
 import './scss/styles.scss';
 document.addEventListener('DOMContentLoaded', () => {
   const sentenceTag = document.querySelector<HTMLInputElement>(`input[type="text"]`);
+
   const typesizeTag = document.querySelector<HTMLInputElement>(`input[name="typesize"]`);
   const typesizeLabel = document.querySelector<HTMLSpanElement>('.typesize-label');
+
+  const lineheightTag = document.querySelector<HTMLInputElement>(`input[name="lineheight"]`);
+  const lineheightLabel = document.querySelector<HTMLSpanElement>('.lineheight-label');
+
   const outputTag = document.querySelector<HTMLTextAreaElement>('.output');
   const originalText = outputTag?.value || '';
 
@@ -33,6 +38,15 @@ document.addEventListener('DOMContentLoaded', () => {
       outputTag.style.fontSize = this.value + 'px';
       if (typesizeLabel) {
         typesizeLabel.innerHTML = this.value + 'px';
+      }
+    }
+  });
+
+  lineheightTag?.addEventListener('input', function () {
+    if (outputTag) {
+      outputTag.style.lineHeight = this.value;
+      if (lineheightLabel) {
+        lineheightLabel.innerHTML = this.value;
       }
     }
   });
