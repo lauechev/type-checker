@@ -63,8 +63,14 @@ h1 {
   font-size: 24px;
 }
 
-.option1 {
+.option {
   margin: 20px 0 0 0;
+}
+
+.option-checkbox {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 label {

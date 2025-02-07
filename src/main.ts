@@ -8,6 +8,8 @@ document.addEventListener('DOMContentLoaded', () => {
   const lineheightTag = document.querySelector<HTMLInputElement>(`input[name="lineheight"]`);
   const lineheightLabel = document.querySelector<HTMLSpanElement>('.lineheight-label');
 
+  const italicTag = document.querySelector<HTMLInputElement>(`input[name="italic"]`);
+
   const outputTag = document.querySelector<HTMLTextAreaElement>('.output');
   const originalText = outputTag?.value || '';
 
@@ -33,21 +35,34 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   //when i change my typesize slider, update the text next to it and change the outputTag's font size
-  typesizeTag?.addEventListener('input', function () {
-    if (outputTag) {
+  if (typesizeTag && outputTag) {
+    typesizeTag.addEventListener('input', function () {
       outputTag.style.fontSize = this.value + 'px';
       if (typesizeLabel) {
         typesizeLabel.innerHTML = this.value + 'px';
       }
-    }
-  });
+    });
+  }
 
-  lineheightTag?.addEventListener('input', function () {
-    if (outputTag) {
+  //when i change my leading slider, update the text next to it and change the outputTag's lineheight
+  if (lineheightTag && outputTag) {
+    lineheightTag.addEventListener('input', function () {
       outputTag.style.lineHeight = this.value;
       if (lineheightLabel) {
         lineheightLabel.innerHTML = this.value;
       }
-    }
-  });
+    });
+  }
+
+  //when i change my italic checkbox, update the font style to either normal or italic if it's checked or not.
+
+  if (italicTag && outputTag) {
+    italicTag.addEventListener('change', function () {
+      if (this.checked) {
+        outputTag.style.fontStyle = 'italic';
+      } else {
+        outputTag.style.fontStyle = '';
+      }
+    });
+  }
 });
