@@ -64,12 +64,17 @@ h1 {
 }
 
 .option1 {
-  margin: 10px 0 0 0;
+  margin: 20px 0 0 0;
 }
 
 label {
   display: block;
   margin: 0 0 5px 0;
+}
+
+label span {
+  float: right;
+  font-style: italic;
 }
 
 input[type='text'] {
@@ -83,4 +88,14 @@ input[type='text'] {
 
 .output {
   font-size: 64px;
+  width: 100%;
+  background: none;
+  color: var(--white);
+  border: none;
+  outline: none;
+  min-height: 100vh;
+}
+
+input[type='range'] {
+  width: 100%;
 }

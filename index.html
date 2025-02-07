@@ -41,9 +41,13 @@
         <label>Your text</label>
         <input type="text" name="sentence" placeholder="The quick brown fox..." />
       </div>
+      <div class="option">
+        <label>Type size <span class="typesize-label">64px</span></label>
+        <input type="range" name="typesize" min="12" max="200" value="64" />
+      </div>
     </section>
 
-    <section class="output">The quick brown fox jumps over the lazy dog</section>
+    <textarea class="output">The quick brown fox jumps over the lazy dog</textarea>
     <script type="module" src="/src/main.ts"></script>
   </body>
 </html>
