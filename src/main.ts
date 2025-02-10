@@ -15,6 +15,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
   const typefaceTag = document.querySelector<HTMLSelectElement>(`select[name="typeface"]`);
 
+  const colorTags = document.querySelectorAll<HTMLDivElement>('.colors div');
+
   const outputTag = document.querySelector<HTMLTextAreaElement>('.output');
   const originalText = outputTag?.value || '';
 
@@ -87,4 +89,23 @@ document.addEventListener('DOMContentLoaded', () => {
       outputTag.style.fontFamily = this.value;
     });
   }
+
+  //go through all of my color tags, then when i click one of them change the background color and the text color.
+  // and make this tag be selected
+  colorTags.forEach((tag) => {
+    tag.addEventListener('click', function () {
+      if (outputTag) {
+        outputTag.style.backgroundColor = this.style.backgroundColor;
+        outputTag.style.color = this.style.color;
+
+        //reset classes
+        colorTags.forEach((tag) => {
+          tag.classList.remove('selected');
+        });
+
+        //only add selected to clicked tag
+        this.classList.add('selected');
+      }
+    });
+  });
 });

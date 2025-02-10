@@ -44,7 +44,7 @@ body {
 
   background-color: var(--background);
   color: var(--textColor);
-  margin: 40px 40px 40px 320px;
+  margin: 0 0 0 280px;
 }
 
 .options {
@@ -100,6 +100,7 @@ input[type='text'] {
   border: none;
   outline: none;
   min-height: 100vh;
+  padding: 40px;
 }
 
 input[type='range'] {
@@ -136,4 +137,22 @@ input[type='range'] {
 
 select {
   width: 100%;
+}
+
+.colors {
+  display: flex;
+}
+
+.colors div {
+  width: 30px;
+  height: 30px;
+  border: 2px solid rgba(255, 255, 255, 0.25);
+  border-radius: 50%;
+  text-align: center;
+  margin: 5px 10px 0 0;
+  transition: border 0.25s;
+}
+
+div.selected {
+  border: 2px solid #fff;
 }
